@@ -53,7 +53,12 @@ export default defineComponent({
       <tbody>
         <tr v-for="event in events" :key="event.id">
           <td>{{ event.startTime }}</td>
-          <td>{{ event.name }}</td>
+          <td>
+            <router-link
+              :to="{ name: 'eventdetails', params: { id: event.id } }"
+              >{{ event.name }}</router-link
+            >
+          </td>
           <td>{{ event.description.slice(0, 50) }}</td>
           <td>{{ event.eventLocation }}</td>
         </tr>
